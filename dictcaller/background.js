@@ -1,0 +1,56 @@
+var logging  = false;
+
+// Helpers to store and access objects in local storage.
+Storage.prototype.setObject = function(key, value) {
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key) {
+    var value = this.getItem(key);
+    if (value == null) {
+        return null;
+    } else {
+        return JSON.parse(value);
+    }
+}
+
+// Send request to a dictionary server indicated by the url parameter.
+function executeQuery(url, params, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(data) {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(xhr.responseText);
+            } else {
+                callback(null);
+            }
+        }
+    }
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+    xhr.send(params);
+}
+
+// Logs the message
+function log(message) {
+    if (logging) {
+        console.log(message);
+    }
+}
+
+// Dispatches the request to handlers
+function dispatchRequest(request, sender, callback) {
+    if (request.method == "retrieve") {
+        callback(localStorage.getObject(request.arg));
+        return true;
+    } else if (request.action == "executeQuery") {
+        var url = request.url;
+        var params = request.params;
+        executeQuery(url, params, callback);
+        return true;
+    } else if (request.action == "log") {
+        log(request.message);
+    }
+}
+
+chrome.extension.onMessage.addListener(dispatchRequest);

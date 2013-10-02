@@ -1,0 +1,96 @@
+#chrome_dictcaller_ext {
+  background: white;
+  margin: 0px;
+  padding: 8px 5px 15px 10px;  /* Sync with PADDING_* in search.js. */
+  border: 2px #AAAAAA solid;
+  border-radius: 20px;
+  opacity: 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 18px;
+  -webkit-transition: opacity 0.35s linear;
+  overflow-x: scroll; overflow-y: scroll; resize: both;
+  color: black;
+  font-family: Tahoma,san-serif;
+  text-align: left;
+}
+
+#chrome_dictcaller_ext div {
+  margin: 0 0 12px 0;
+}
+
+#chrome_dictcaller_ext div div {
+  margin: 0;
+}
+
+#chrome_dictcaller_ext div div h3 {
+  margin: 0;
+  font-weight: bolder;
+  font-size: 14px;
+  float: left;
+}
+
+#chrome_dictcaller_ext div div span {
+  margin-left: 1em;
+  font-family: 'Arial Unicode MS'
+}
+
+#chrome_dictcaller_ext p {
+  margin: 4px 0 4px 0;
+  padding: 0;
+  font-size: 12px;
+  clear: both;
+}
+
+#chrome_dictcaller_ext_handle {
+  width: 15px;
+  height: 15px;
+  cursor: se-resize;
+  opacity: 0;
+  -webkit-transition: opacity 0.35s linear;
+}
+
+#chrome_dictcaller_ext_form {
+  background: white !important;
+  
+  padding: 10px;
+  
+  border-radius: 14px;
+  
+  font-family: Arial, Tahoma, sans-serif;
+  font-size: 14px;
+  
+  opacity: 0;
+  
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 18px;
+  -webkit-transition: opacity 0.35s linear;
+}
+
+#chrome_dictcaller_ext_form * {
+  font-family: Arial, Tahoma, sans-serif;
+  font-size: 1.15em;
+}
+
+#chrome_dictcaller_ext_form input[type=text] {
+  margin-left: 7px;
+  border: 1px #AAAAAA solid;
+  padding: 3px 2px 2px 2px;
+  display: inline;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#CCCCCC)) !important;
+}
+
+#chrome_dictcaller_ext_form input[type=button] {
+  float: right;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BBBBBB), to(gray)) !important;
+  color: white !important;
+  border: none;
+  border-radius: 2px 15px 15px 2px;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px -1px 1px;
+  font-weight: bold;
+  padding: 2px 3px 3px 2px;
+  display: inline;
+  cursor: pointer;
+}
+
+#chrome_dictcaller_ext_form input[type=button]:hover {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(gray), to(#BBBBBB)) !important;
+  padding: 3px 2px 2px 3px;
+}

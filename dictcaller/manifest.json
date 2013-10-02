@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "Dictcaller",
+  "version": "0.1.0",
+  "description": "query and shows result for your interesting words and phrases, so that this extension calls the dictionary server on your client to ask.",
+  "icons": {"128": "icon128.png"},
+  "author": "@yuga",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [{
+    "all_frames": true,
+    "css": ["frame.css"],
+    "js": ["search.js"],
+    "matches": ["file://*/*", "http://*/*", "https://*/*"],
+    "run_at": "document_end"
+  }],
+  "options_page": "options.html",
+  "permissions": ["http://*/*"],
+  "web_accessible_resources": [
+    "options.js"
+  ]
+}
