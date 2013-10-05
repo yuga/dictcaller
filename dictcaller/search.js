@@ -174,6 +174,7 @@ var handleKeypress = function (e) {
     removePopup(true, false);
     grayOut(true);
     createQueryForm();
+    e.preventDefault();
   } else {
     document.getElementById(FORM_ID).getElementsByTagName('input')[0].value = '';
   }
